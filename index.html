@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Resume Analyzer — Upload</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+    </style>
+</head>
+
+<body>
+    <header class="navbar">
+        <div class="logo">🚀 Resume Analyzer</div>
+        <ul class="nav-links">
+            <li><a href="#">Analyze</a></li>
+            <li><a href="#" target="_blank">Docs</a></li>
+        </ul>
+    </header>
+
+    <main class="container">
+        <section id="upload-section" class="upload-section">
+            <h1 class="main-title">Upload your resume</h1>
+            <p class="subtitle">Drop a PDF or DOCX, or select a file to start analysis.</p>
+
+            <div id="drop-area" class="upload-card glass-bg">
+                <div class="upload-icon">⬇️</div>
+                <p id="drag-text">Drag & drop your resume here</p>
+
+                <input id="resumeFile" type="file" accept=".pdf,.docx" style="display:none" />
+                <button id="upload-btn" class="upload-btn">Browse File</button>
+
+                <div class="file-name" id="fileName"></div>
+                <button id="analyzeBtn" class="analyze-btn" disabled>Analyze</button>
+            </div>
+
+            <!-- loader / progress -->
+            <div id="loader" class="loader-container">
+                <div class="progress-bar-wrap">
+                    <div id="progressBar" class="progress-bar"></div>
+                </div>
+                <div class="loading-text">Preparing...</div>
+            </div>
+        </section>
+
+        <section id="results-section" class="results-section hidden">
+            <h2 class="section-title">Analysis Results</h2>
+
+            <div class="results-grid">
+                <!-- ATS -->
+                <div class="result-card ats-box">
+                    <div class="ats-title">
+                        ⚡ ATS Score
+                    </div>
+
+                    <div class="ats-number">
+                        <span id="atsScoreValue">--</span>
+                        <span class="ats-total">/ 100</span>
+                    </div>
+
+                    <div class="ats-bar">
+                        <div id="atsBarFill" class="ats-bar-fill"></div>
+                    </div>
+
+                    <div class="score-feedback" id="atsFeedback">—</div>
+                </div>
+
+                <!-- Contact -->
+                <div class="result-card">
+                    <h3>📞 Contact</h3>
+                    <div class="result-value">✉️Email: <span id="emailResult">N/A</span></div>
+                    <div class="result-value">📱Phone: <span id="phoneResult">N/A</span></div>
+                </div>
+
+                <!-- Word Count -->
+                <div class="result-card">
+                    <h3>🔢Word Count</h3>
+                    <div class="result-value" id="wordCountResult">N/A</div>
+                </div>
+
+                <!-- Skills -->
+                <div class="result-card full-width">
+                    <h3>💡Extracted Skills</h3>
+                    <div id="skillsResult" class="skills-list"></div>
+                </div>
+
+                <!-- Missing sections -->
+                <div class="result-card full-width">
+                    <h3>❓Missing Sections</h3>
+                    <div id="missingSections" class="missing_sections">N/A</div>
+                </div>
+
+                <!-- Grammar -->
+                <div class="result-card full-width">
+                    <h3>✔️Grammar Check</h3>
+                    <button id="grammarCheckBtn" class="upload-btn">Review Grammar </button>
+                    <div id="grammarLoader" class="loader-mini hidden"></div>
+                    <div id="grammarIssues" class="issues-list"></div>
+                </div>
+            </div>
+
+            <button id="resetBtn" class="upload-btn">Start New Analysis</button>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

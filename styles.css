@@ -1,0 +1,325 @@
+/* ---------- Theme & Variables ---------- */
+:root {
+    --primary-color: #095cea;
+    --secondary-color: #2575fc;
+    --text-color: #010102d7;
+    --light-text-color: #ffffff;
+    --background-start: #dbe4f0;
+    --background-end: #f4f7f9;
+    --glass-color: rgba(246, 242, 242, 0.879);
+    --glass-border: rgba(193, 204, 215, 0.905);
+}
+
+/* Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-color);
+    background: linear-gradient(135deg, var(--background-start), var(--background-end));
+    min-height: 100vh;
+    padding-top: 80px;
+}
+
+/* Navbar */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 6%;
+    z-index: 1000;
+    background: transparent;
+}
+
+.logo {
+    font-size: 1.3rem;
+    font-weight: 700;
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 600;
+    padding: 6px 10px;
+    border-radius: 10px;
+}
+
+/* Container */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Titles */
+.main-title {
+    font-size: 2rem;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 6px;
+    color: var(--text-color);
+}
+
+.subtitle {
+    text-align: center;
+    color: #13121ce5;
+    margin-bottom: 18px;
+}
+
+/* Glass card */
+.glass-bg,
+.upload-card {
+    background: var(--glass-color);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: 18px;
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 12px 35px rgba(10, 10, 10, 0.06);
+}
+
+/* Upload card specifics */
+.upload-card {
+    max-width: 720px;
+    margin: 12px auto 26px auto;
+    padding: 36px 28px;
+    text-align: center;
+    transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.upload-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
+}
+
+.upload-icon {
+    font-size: 44px;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+#drag-text {
+    color: #1c242a;
+    margin-bottom: 14px;
+    font-weight: 500;
+}
+
+.upload-btn,
+.analyze-btn {
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    color: var(--light-text-color);
+    border: none;
+    padding: 12px 26px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-weight: 700;
+    margin-top: 10px;
+    box-shadow: 0 8px 28px rgba(37, 117, 252, 0.18);
+}
+
+.upload-btn[disabled],
+.analyze-btn[disabled] {
+    opacity: 0.6;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+.file-name {
+    margin-top: 14px;
+    font-style: italic;
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+/* Loader & progress */
+.loader-container {
+    display: none;
+    max-width: 520px;
+    margin: 18px auto;
+    text-align: center;
+}
+
+.progress-bar-wrap {
+    height: 12px;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 12px;
+    padding: 2px;
+    background: rgba(0, 0, 0, 0.06);
+}
+
+.progress-bar {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, var(--secondary-color), var(--primary-color));
+    border-radius: 6px;
+    transition: width 400ms ease;
+}
+
+.loading-text {
+    font-style: italic;
+    color: #1c1d27;
+    animation: pulse 1.6s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1 }
+    50% { opacity: .55 }
+}
+
+/* Results Grid */
+.hidden {
+    display: none !important;
+}
+
+.results-section {
+    padding: 30px 0 80px 0;
+}
+
+.section-title {
+    font-size: 2rem;
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: 26px;
+}
+
+.results-grid {
+    display: grid;
+    gap: 26px;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* Result cards */
+.result-card {
+    padding: 18px;
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: 0 10px 28px rgba(22, 28, 50, 0.04);
+    min-height: 120px;
+}
+
+.result-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+/* Skills list */
+.skills-list {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 6px;
+}
+
+.skill-tag {
+    background: var(--secondary-color);
+    color: white;
+    padding: 8px 14px;
+    border-radius: 18px;
+    font-weight: 600;
+}
+
+/* Missing sections */
+.missing_sections {
+    padding: 14px;
+    min-height: 80px;
+    background: #fafafa;
+    border-radius: 8px;
+}
+
+.missing-list {
+    padding-left: 18px;
+    margin: 0;
+}
+
+.missing-list li {
+    margin: 6px 0;
+}
+
+/* Grammar issues */
+.issues-list {
+    margin-top: 12px;
+}
+
+.grammar-issues-item {
+    padding: 10px;
+    border-left: 4px solid rgba(37, 117, 252, 0.12);
+    margin-bottom: 8px;
+    background: #fff;
+    border-radius: 6px;
+}
+
+/* NEW ATS SCORE UI */
+.ats-box {
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 14px;
+    box-shadow: 0 10px 25px rgba(22, 28, 50, 0.06);
+}
+
+.ats-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #2575fc;
+    margin-bottom: 10px;
+}
+
+.ats-number {
+    font-size: 3rem;
+    font-weight: 800;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #4683ed;
+    width: 100% ;
+}
+
+.ats-total {
+    font-size: 1.2rem;
+    color: #26262ac6;
+    margin-left: 6px;
+}
+
+.ats-bar {
+    width: 100%;
+    height: 10px;
+    border-radius: 10px;
+    background: #f1f1f1;
+    margin-top: 10px;
+    overflow: hidden;
+}
+
+.ats-bar-fill {
+    height: 100%;
+    width: 0%;
+    border-radius: 10px;
+    background: linear-gradient(90deg, #e96767, #e85ec5, #6897e7);
+    transition: width 0.8s ease-in-out;
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+    .upload-card {
+        padding: 22px;
+    }
+}
