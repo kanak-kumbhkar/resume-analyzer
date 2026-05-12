@@ -1,6 +1,6 @@
 // Config
-const UPLOAD_ENDPOINT = "http://127.0.0.1:8000/upload";
-const GRAMMAR_ENDPOINT = "http://127.0.0.1:8000/grammar-check";
+const UPLOAD_ENDPOINT = "https://resume-analyzer-mh02.onrender.com/upload";
+const GRAMMAR_ENDPOINT = "https://resume-analyzer-mh02.onrender.com/grammar-check";
 
 // DOM references (matching index.html)
 const dropArea = document.getElementById('drop-area');
